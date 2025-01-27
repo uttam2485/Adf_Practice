@@ -1,0 +1,38 @@
+{
+	"name": "validation_activity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Validation1",
+				"type": "Validation",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "ouputlocation_new",
+						"type": "DatasetReference",
+						"parameters": {
+							"Foldername": {
+								"value": "@pipeline().parameters.foldername",
+								"type": "Expression"
+							}
+						}
+					},
+					"timeout": "0.12:00:00",
+					"sleep": 10
+				}
+			}
+		],
+		"parameters": {
+			"foldername": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "Control-Flow-Pipeline"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-01-27T07:55:21Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

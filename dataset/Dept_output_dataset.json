@@ -1,0 +1,35 @@
+{
+	"name": "Dept_output_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1_uttam",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"sinklocation": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "Control-Flow-Datasets"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": {
+					"value": "@dataset().sinklocation",
+					"type": "Expression"
+				},
+				"container": "output"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

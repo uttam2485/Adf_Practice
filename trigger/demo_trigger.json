@@ -1,0 +1,19 @@
+{
+	"name": "demo_trigger",
+	"properties": {
+		"description": "schedule for select data flow",
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 1,
+				"startTime": "2024-11-07T10:18:00",
+				"endTime": "2024-11-07T10:21:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}

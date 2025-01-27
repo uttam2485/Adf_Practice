@@ -1,0 +1,9 @@
+{
+	"name": "uttam-practice",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "8cb9acec-f213-49b6-870f-137cb3461700",
+		"tenantId": "df0415f1-4cfb-4bbe-935e-b282bdbe28ae"
+	}
+}

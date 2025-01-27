@@ -1,0 +1,40 @@
+{
+	"name": "Sql_input_emp_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer_linkedServices",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Control-Flow-Datasets"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Empid",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Empname",
+				"type": "varchar"
+			},
+			{
+				"name": "DeptId",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Salary",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "emp"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

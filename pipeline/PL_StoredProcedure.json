@@ -1,0 +1,70 @@
+{
+	"name": "PL_StoredProcedure",
+	"properties": {
+		"activities": [
+			{
+				"name": "Stored procedure1",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[SP_Log_PipelineExecutionDetails]",
+					"storedProcedureParameters": {
+						"DataFactoryName": {
+							"value": {
+								"value": "@pipeline().DataFactory",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"PipelineName": {
+							"value": {
+								"value": "@pipeline().Pipeline",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"PipelineRunID": {
+							"value": {
+								"value": "@pipeline().RunId",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"PipelinetriggerName": {
+							"value": {
+								"value": "@pipeline().TriggerName",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"PipelinetriggerTime": {
+							"value": {
+								"value": "@pipeline().TriggerTime",
+								"type": "Expression"
+							},
+							"type": "Datetime"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "SqlServer_linkedServices",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"folder": {
+			"name": "Control-Flow-Pipeline"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-01-27T07:55:21Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

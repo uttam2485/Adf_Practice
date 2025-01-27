@@ -1,0 +1,36 @@
+{
+	"name": "Dept_input_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1_uttam",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Control-Flow-Datasets"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Dept_darta.csv",
+				"container": "source"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Deptid",
+				"type": "String"
+			},
+			{
+				"name": " Deptname",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

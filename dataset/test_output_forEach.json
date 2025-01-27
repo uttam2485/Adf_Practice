@@ -1,0 +1,30 @@
+{
+	"name": "test_output_forEach",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1_uttam",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Foldername": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "Control-Flow-Datasets"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": {
+					"value": "@dataset().Foldername",
+					"type": "Expression"
+				},
+				"container": "sink"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

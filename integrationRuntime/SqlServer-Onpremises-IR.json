@@ -1,0 +1,6 @@
+{
+	"name": "SqlServer-Onpremises-IR",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

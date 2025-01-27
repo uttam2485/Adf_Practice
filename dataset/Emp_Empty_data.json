@@ -1,0 +1,27 @@
+{
+	"name": "Emp_Empty_data",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1_uttam",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Control-Flow-Datasets"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Emp_Null_data.csv",
+				"container": "source"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
