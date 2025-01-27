@@ -1556,6 +1556,51 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/Gitbub_feature_branch_input_dataset')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1_uttam",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "Emp.csv",
+						"container": "source"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Empid",
+						"type": "String"
+					},
+					{
+						"name": "name",
+						"type": "String"
+					},
+					{
+						"name": "country",
+						"type": "String"
+					},
+					{
+						"name": "deptid",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1_uttam')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Lookup_output_location')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",

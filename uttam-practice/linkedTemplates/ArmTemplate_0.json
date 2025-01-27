@@ -403,6 +403,51 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/Gitbub_feature_branch_input_dataset')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1_uttam",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "Emp.csv",
+						"container": "source"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Empid",
+						"type": "String"
+					},
+					{
+						"name": "name",
+						"type": "String"
+					},
+					{
+						"name": "country",
+						"type": "String"
+					},
+					{
+						"name": "deptid",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1_uttam')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Lookup_output_location')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -664,102 +709,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/integrationRuntimes/SqlServer-Onpremises-IR')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/PL_ForEach_activity')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "ForEach1",
-						"type": "ForEach",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"items": {
-								"value": "@pipeline().parameters.Foldername",
-								"type": "Expression"
-							},
-							"isSequential": true,
-							"activities": [
-								{
-									"name": "Copy data1",
-									"type": "Copy",
-									"dependsOn": [],
-									"policy": {
-										"timeout": "0.12:00:00",
-										"retry": 0,
-										"retryIntervalInSeconds": 30,
-										"secureOutput": false,
-										"secureInput": false
-									},
-									"userProperties": [],
-									"typeProperties": {
-										"source": {
-											"type": "BinarySource",
-											"storeSettings": {
-												"type": "AzureBlobStorageReadSettings",
-												"recursive": true
-											},
-											"formatSettings": {
-												"type": "BinaryReadSettings"
-											}
-										},
-										"sink": {
-											"type": "BinarySink",
-											"storeSettings": {
-												"type": "AzureBlobStorageWriteSettings"
-											}
-										},
-										"enableStaging": false
-									},
-									"inputs": [
-										{
-											"referenceName": "Test_Input_dataset",
-											"type": "DatasetReference",
-											"parameters": {}
-										}
-									],
-									"outputs": [
-										{
-											"referenceName": "test_output_forEach",
-											"type": "DatasetReference",
-											"parameters": {
-												"Foldername": {
-													"value": "@item()",
-													"type": "Expression"
-												}
-											}
-										}
-									]
-								}
-							]
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"parameters": {
-					"Foldername": {
-						"type": "array",
-						"defaultValue": [
-							"output1",
-							"output2"
-						]
-					}
-				},
-				"folder": {
-					"name": "Control-Flow-Pipeline"
-				},
-				"annotations": [],
-				"lastPublishTime": "2025-01-27T07:55:20Z"
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Test_Input_dataset')]",
-				"[concat(variables('factoryId'), '/datasets/test_output_forEach')]"
 			]
 		}
 	]
