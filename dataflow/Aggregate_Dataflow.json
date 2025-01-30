@@ -12,7 +12,15 @@
 					"name": "emp"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "E_Output_dataset",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "aggregate"
@@ -29,7 +37,17 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> emp",
 				"emp aggregate(groupBy(deptid),",
-				"     {Total employee} = count(Empid)) ~> aggregate"
+				"     {Total employee} = count(Empid)) ~> aggregate",
+				"aggregate sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          Deptid as string,",
+				"          { Deptname} as string",
+				"     ),",
+				"     partitionFileNames:['totalEmp.csv'],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink1"
 			]
 		}
 	}
