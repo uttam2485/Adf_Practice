@@ -1,9 +1,9 @@
 {
-	"name": "pipeline1",
+	"name": "PL_Filter",
 	"properties": {
 		"activities": [
 			{
-				"name": "Data flow1",
+				"name": "filter",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {

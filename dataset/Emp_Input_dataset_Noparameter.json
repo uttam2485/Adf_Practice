@@ -10,9 +10,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "Emp.csv",
+				"fileName": "Dept_darta.csv",
 				"container": "source"
-			}
+			},
+			"firstRowAsHeader": true
 		},
 		"schema": []
 	}
