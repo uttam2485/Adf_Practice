@@ -15,7 +15,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "Emp_Output_dataset",
+						"referenceName": "E_Output_dataset",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -34,6 +34,10 @@
 				"source1 filter(equals(Empid,'2')) ~> filter1",
 				"filter1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     input(",
+				"          Deptid as string,",
+				"          { Deptname} as string",
+				"     ),",
 				"     partitionFileNames:['Payroll.csv'],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
