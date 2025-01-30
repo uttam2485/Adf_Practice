@@ -1,0 +1,19 @@
+{
+	"name": "Emp_Input_dataset_Noparameter",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1_uttam",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Emp.csv",
+				"container": "source"
+			}
+		},
+		"schema": []
+	}
+}
