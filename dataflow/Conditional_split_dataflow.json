@@ -12,8 +12,34 @@
 					"name": "source1"
 				}
 			],
-			"sinks": [],
-			"transformations": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "E_Output_dataset",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "E_Output_dataset",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
+				},
+				{
+					"dataset": {
+						"referenceName": "E_Output_dataset",
+						"type": "DatasetReference"
+					},
+					"name": "sink3"
+				}
+			],
+			"transformations": [
+				{
+					"name": "split1"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          Empid as string,",
@@ -23,7 +49,41 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1"
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 split(equals(deptid,'1'),",
+				"     equals(deptid,'2'),",
+				"     equals(deptid,'3'),",
+				"     disjoint: false) ~> split1@(ITdepart, HRdept, PayrollDept, OtherDept)",
+				"split1@ITdepart sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          Deptid as string,",
+				"          { Deptname} as string",
+				"     ),",
+				"     partitionFileNames:['ITdepart'],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink1",
+				"split1@HRdept sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          Deptid as string,",
+				"          { Deptname} as string",
+				"     ),",
+				"     partitionFileNames:['HRdept'],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink2",
+				"split1@PayrollDept sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          Deptid as string,",
+				"          { Deptname} as string",
+				"     ),",
+				"     partitionFileNames:['Payroll'],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink3"
 			]
 		}
 	}
