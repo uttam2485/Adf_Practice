@@ -56,18 +56,6 @@
 					},
 					"AzureBlobStorage1_uttam_connectionString": {
 						"value": "[parameters('AzureBlobStorage1_uttam_connectionString')]"
-					},
-					"SqlServer_linkedServices_password": {
-						"value": "[parameters('SqlServer_linkedServices_password')]"
-					},
-					"SqlServer_linkedServices_properties_typeProperties_server": {
-						"value": "[parameters('SqlServer_linkedServices_properties_typeProperties_server')]"
-					},
-					"SqlServer_linkedServices_properties_typeProperties_database": {
-						"value": "[parameters('SqlServer_linkedServices_properties_typeProperties_database')]"
-					},
-					"SqlServer_linkedServices_properties_typeProperties_userName": {
-						"value": "[parameters('SqlServer_linkedServices_properties_typeProperties_userName')]"
 					}
 				}
 			},
@@ -86,11 +74,43 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"SqlServer_linkedServices_password": {
+						"value": "[parameters('SqlServer_linkedServices_password')]"
+					},
+					"SqlServer_linkedServices_properties_typeProperties_server": {
+						"value": "[parameters('SqlServer_linkedServices_properties_typeProperties_server')]"
+					},
+					"SqlServer_linkedServices_properties_typeProperties_database": {
+						"value": "[parameters('SqlServer_linkedServices_properties_typeProperties_database')]"
+					},
+					"SqlServer_linkedServices_properties_typeProperties_userName": {
+						"value": "[parameters('SqlServer_linkedServices_properties_typeProperties_userName')]"
 					}
 				}
 			},
 			"dependsOn": [
 				"[resourceId('Microsoft.Resources/deployments', 'uttam-practice_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "uttam-practice_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'uttam-practice_ArmTemplate_1')]"
 			]
 		}
 	]
