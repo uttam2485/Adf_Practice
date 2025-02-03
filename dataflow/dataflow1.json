@@ -1,0 +1,53 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DC_Citizens_input_Dataset",
+						"type": "DatasetReference"
+					},
+					"name": "citizens"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DC_CitizensW_Output_dataset",
+						"type": "DatasetReference"
+					},
+					"name": "citizensDW"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          id as integer,",
+				"          Name as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     enableNativeCdc: true,",
+				"     netChanges: true,",
+				"     skipInitialLoad: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> citizens",
+				"citizens sink(allowSchemaDrift: true,",
+				"     validateSchema: true,",
+				"     input(",
+				"          id as integer,",
+				"          Name as string",
+				"     ),",
+				"     deletable:true,",
+				"     insertable:true,",
+				"     updateable:true,",
+				"     upsertable:true,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> citizensDW"
+			]
+		}
+	}
+}
