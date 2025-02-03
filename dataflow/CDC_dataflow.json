@@ -15,10 +15,10 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "DC_CDC_citizenWD_output_dataset",
+						"referenceName": "cdc_citizenDW_output",
 						"type": "DatasetReference"
 					},
-					"name": "citizensDW"
+					"name": "sink1"
 				}
 			],
 			"transformations": [],
@@ -35,7 +35,7 @@
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> citizens",
 				"citizens sink(allowSchemaDrift: true,",
-				"     validateSchema: true,",
+				"     validateSchema: false,",
 				"     input(",
 				"          id as integer,",
 				"          Name as string",
@@ -48,7 +48,7 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> citizensDW"
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
 			]
 		}
 	}

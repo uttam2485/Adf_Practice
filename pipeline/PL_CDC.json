@@ -19,9 +19,9 @@
 						"referenceName": "CDC_dataflow",
 						"type": "DataFlowReference"
 					},
-					"integrationRuntime": {
-						"referenceName": "Azure-sql",
-						"type": "IntegrationRuntimeReference"
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
 					},
 					"traceLevel": "Fine",
 					"continuationSettings": {
