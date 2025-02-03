@@ -1,12 +1,12 @@
 {
-	"name": "dataflow1",
+	"name": "CDC_dataflow",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "DC_Citizens_input_Dataset",
+						"referenceName": "DC_cdc_citizen_input_dataset",
 						"type": "DatasetReference"
 					},
 					"name": "citizens"
@@ -15,7 +15,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "DC_CitizensW_Output_dataset",
+						"referenceName": "DC_CDC_citizenWD_output_dataset",
 						"type": "DatasetReference"
 					},
 					"name": "citizensDW"
@@ -47,7 +47,8 @@
 				"     keys:['id'],",
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> citizensDW"
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> citizensDW"
 			]
 		}
 	}

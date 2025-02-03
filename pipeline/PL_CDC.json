@@ -1,0 +1,35 @@
+{
+	"name": "PL_CDC",
+	"properties": {
+		"activities": [
+			{
+				"name": "CDC_dataflow",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "CDC_dataflow",
+						"type": "DataFlowReference"
+					},
+					"integrationRuntime": {
+						"referenceName": "Azure-sql",
+						"type": "IntegrationRuntimeReference"
+					},
+					"traceLevel": "Fine",
+					"continuationSettings": {
+						"customizedCheckpointKey": "9480a076-cd51-4966-9368-531d74ee5539"
+					}
+				}
+			}
+		],
+		"annotations": []
+	}
+}
