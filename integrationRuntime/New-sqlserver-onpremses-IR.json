@@ -1,0 +1,6 @@
+{
+	"name": "New-sqlserver-onpremses-IR",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
