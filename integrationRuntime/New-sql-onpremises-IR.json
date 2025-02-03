@@ -1,0 +1,6 @@
+{
+	"name": "New-sql-onpremises-IR",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
