@@ -1,0 +1,21 @@
+{
+	"name": "LS_SQLServer",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "DESKTOP-HS5G5B7",
+			"database": "ADF-Praactice",
+			"encrypt": "mandatory",
+			"trustServerCertificate": true,
+			"authenticationType": "SQL",
+			"userName": "uttam",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJjNTI3ZmU5NC1lZDliLTQ5Y2UtODk1My04NTM0MzZjZWM3NGIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "New-sql-onpremises-IR",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
