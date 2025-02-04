@@ -15,18 +15,11 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"dataflow": {
-						"referenceName": "CDC_dataflow",
-						"type": "DataFlowReference"
-					},
 					"compute": {
 						"coreCount": 8,
 						"computeType": "General"
 					},
-					"traceLevel": "Fine",
-					"continuationSettings": {
-						"customizedCheckpointKey": "9480a076-cd51-4966-9368-531d74ee5539"
-					}
+					"traceLevel": "Fine"
 				}
 			}
 		],
