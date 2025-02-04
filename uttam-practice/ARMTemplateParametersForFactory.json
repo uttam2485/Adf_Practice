@@ -8,14 +8,44 @@
 		"AzureBlobStorage1_uttam_connectionString": {
 			"value": ""
 		},
+		"AzureSqlDatabase2_password": {
+			"value": ""
+		},
+		"LS_SQLServer_password": {
+			"value": ""
+		},
 		"SqlServer_linkedServices_password": {
 			"value": ""
 		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "adf.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "Azure_sql_database"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_server": {
+			"value": "adf.database.windows.net"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_database": {
+			"value": "Azure_sql_database"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_userName": {
+			"value": "uttam"
+		},
+		"LS_SQLServer_properties_typeProperties_server": {
+			"value": "DESKTOP-HS5G5B7"
+		},
+		"LS_SQLServer_properties_typeProperties_database": {
+			"value": "ADF-Praactice"
+		},
+		"LS_SQLServer_properties_typeProperties_userName": {
+			"value": "uttam"
+		},
 		"SqlServer_linkedServices_properties_typeProperties_server": {
-			"value": "DESKTOP-HS5G5B7\\SQLEXPRESS"
+			"value": "DESKTOP-HS5G5B7"
 		},
 		"SqlServer_linkedServices_properties_typeProperties_database": {
-			"value": "ADF-Practice"
+			"value": "ADF-Praactice"
 		},
 		"SqlServer_linkedServices_properties_typeProperties_userName": {
 			"value": "Uttam"
