@@ -3,29 +3,11 @@
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
-			"sources": [
-				{
-					"dataset": {
-						"referenceName": "DC_cdc_citizen_input_dataset",
-						"type": "DatasetReference"
-					},
-					"name": "citizens"
-				}
-			],
+			"sources": [],
 			"sinks": [],
 			"transformations": [],
 			"scriptLines": [
-				"source(output(",
-				"          id as integer,",
-				"          Name as string",
-				"     ),",
-				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     enableNativeCdc: true,",
-				"     netChanges: true,",
-				"     skipInitialLoad: false,",
-				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     format: 'table') ~> citizens"
+				""
 			]
 		}
 	}
