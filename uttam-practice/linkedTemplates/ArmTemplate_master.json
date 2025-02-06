@@ -67,6 +67,10 @@
 			"type": "string",
 			"defaultValue": "Uttam"
 		},
+		"trigger_pL_If_condition_properties_PL_If_condition_parameters_filename": {
+			"type": "bool",
+			"defaultValue": true
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -176,6 +180,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"trigger_pL_If_condition_properties_PL_If_condition_parameters_filename": {
+						"value": "[parameters('trigger_pL_If_condition_properties_PL_If_condition_parameters_filename')]"
 					}
 				}
 			},

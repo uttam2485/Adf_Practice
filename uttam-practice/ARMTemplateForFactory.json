@@ -66,6 +66,10 @@
 		"SqlServer_linkedServices_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Uttam"
+		},
+		"trigger_pL_If_condition_properties_PL_If_condition_parameters_filename": {
+			"type": "bool",
+			"defaultValue": true
 		}
 	},
 	"variables": {
@@ -2944,268 +2948,36 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/CDCCitizens')]",
-			"type": "Microsoft.DataFactory/factories/adfcdcs",
+			"name": "[concat(parameters('factoryName'), '/trigger_pL_If_condition')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"SourceConnectionsInfo": [
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
 					{
-						"SourceEntities": [
-							{
-								"name": "dbo.citizens",
-								"properties": {
-									"schema": [
-										{
-											"name": "id",
-											"dataType": "integer"
-										},
-										{
-											"name": "Name",
-											"dataType": "string"
-										}
-									],
-									"dslConnectorProperties": [
-										{
-											"name": "schemaName",
-											"value": "dbo"
-										},
-										{
-											"name": "tableName",
-											"value": "citizens"
-										},
-										{
-											"name": "enableNativeCdc",
-											"value": true
-										},
-										{
-											"name": "netChanges",
-											"value": true
-										},
-										{
-											"name": "allowSchemaDrift",
-											"value": false
-										},
-										{
-											"name": "inferDriftedColumnTypes",
-											"value": false
-										}
-									]
-								}
-							}
-						],
-						"Connection": {
-							"linkedService": {
-								"referenceName": "AzureSqlDatabase2",
-								"type": "LinkedServiceReference"
-							},
-							"linkedServiceType": "AzureSqlDatabase",
-							"type": "linkedservicetype",
-							"isInlineDataset": true,
-							"commonDslConnectorProperties": [
-								{
-									"name": "allowSchemaDrift",
-									"value": true
-								},
-								{
-									"name": "inferDriftedColumnTypes",
-									"value": true
-								},
-								{
-									"name": "format",
-									"value": "table"
-								},
-								{
-									"name": "store",
-									"value": "sqlserver"
-								},
-								{
-									"name": "databaseType",
-									"value": "databaseType"
-								},
-								{
-									"name": "database",
-									"value": "database"
-								},
-								{
-									"name": "skipInitialLoad",
-									"value": true
-								}
-							]
+						"pipelineReference": {
+							"referenceName": "PL_If_condition",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"filename": "[parameters('trigger_pL_If_condition_properties_PL_If_condition_parameters_filename')]"
 						}
 					}
 				],
-				"TargetConnectionsInfo": [
-					{
-						"TargetEntities": [
-							{
-								"name": "dbo.citizensDW",
-								"properties": {
-									"schema": [
-										{
-											"name": "id",
-											"dataType": "integer"
-										},
-										{
-											"name": "name",
-											"dataType": "string"
-										}
-									],
-									"dslConnectorProperties": [
-										{
-											"name": "schemaName",
-											"value": "dbo"
-										},
-										{
-											"name": "tableName",
-											"value": "citizensDW"
-										},
-										{
-											"name": "allowSchemaDrift",
-											"value": false
-										},
-										{
-											"name": "inferDriftedColumnTypes",
-											"value": false
-										},
-										{
-											"name": "keys",
-											"value": [
-												"id"
-											]
-										},
-										{
-											"name": "deletable",
-											"value": true
-										},
-										{
-											"name": "updateable",
-											"value": true
-										},
-										{
-											"name": "upsertable",
-											"value": true
-										},
-										{
-											"name": "defaultToUpsert",
-											"value": true
-										}
-									]
-								}
-							}
-						],
-						"Connection": {
-							"linkedService": {
-								"referenceName": "AzureSqlDatabase2",
-								"type": "LinkedServiceReference"
-							},
-							"linkedServiceType": "AzureSqlDatabase",
-							"type": "linkedservicetype",
-							"isInlineDataset": true,
-							"commonDslConnectorProperties": [
-								{
-									"name": "allowSchemaDrift",
-									"value": true
-								},
-								{
-									"name": "inferDriftedColumnTypes",
-									"value": true
-								},
-								{
-									"name": "format",
-									"value": "table"
-								},
-								{
-									"name": "store",
-									"value": "sqlserver"
-								},
-								{
-									"name": "databaseType",
-									"value": "databaseType"
-								},
-								{
-									"name": "database",
-									"value": "database"
-								},
-								{
-									"name": "deletable",
-									"value": false
-								},
-								{
-									"name": "insertable",
-									"value": true
-								},
-								{
-									"name": "updateable",
-									"value": false
-								},
-								{
-									"name": "upsertable",
-									"value": false
-								},
-								{
-									"name": "skipDuplicateMapInputs",
-									"value": true
-								},
-								{
-									"name": "skipDuplicateMapOutputs",
-									"value": true
-								}
-							]
-						},
-						"DataMapperMappings": [
-							{
-								"targetEntityName": "dbo.citizensDW",
-								"sourceEntityName": "dbo.citizens",
-								"sourceConnectionReference": {
-									"connectionName": "AzureSqlDatabase2",
-									"type": "linkedservicetype"
-								},
-								"attributeMappingInfo": {
-									"attributeMappings": [
-										{
-											"name": "id",
-											"type": "Direct",
-											"functionName": "",
-											"attributeReference": {
-												"name": "id",
-												"entity": "dbo.citizens",
-												"entityConnectionReference": {
-													"connectionName": "AzureSqlDatabase2",
-													"type": "linkedservicetype"
-												}
-											}
-										},
-										{
-											"name": "name",
-											"type": "Direct",
-											"functionName": "",
-											"attributeReference": {
-												"name": "Name",
-												"entity": "dbo.citizens",
-												"entityConnectionReference": {
-													"connectionName": "AzureSqlDatabase2",
-													"type": "linkedservicetype"
-												}
-											}
-										}
-									]
-								}
-							}
-						],
-						"Relationships": []
-					}
-				],
-				"Policy": {
+				"type": "ScheduleTrigger",
+				"typeProperties": {
 					"recurrence": {
 						"frequency": "Minute",
-						"interval": 1
-					},
-					"mode": "Microbatch"
-				},
-				"allowVNetOverride": false
+						"interval": 15,
+						"startTime": "2025-02-06T03:56:00",
+						"endTime": "2025-02-07T03:59:00",
+						"timeZone": "India Standard Time"
+					}
+				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase2')]"
+				"[concat(variables('factoryId'), '/pipelines/PL_If_condition')]"
 			]
 		}
 	]
