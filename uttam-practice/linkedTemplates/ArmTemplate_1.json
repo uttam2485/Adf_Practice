@@ -395,8 +395,9 @@
 								"type": "DelimitedTextSource",
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
-									"fileListPath": ".csv",
-									"enablePartitionDiscovery": false
+									"recursive": true,
+									"enablePartitionDiscovery": false,
+									"prefix": ".csv"
 								},
 								"formatSettings": {
 									"type": "DelimitedTextReadSettings"

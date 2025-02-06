@@ -197,8 +197,9 @@
 								"type": "DelimitedTextSource",
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
-									"fileListPath": ".csv",
-									"enablePartitionDiscovery": false
+									"recursive": true,
+									"enablePartitionDiscovery": false,
+									"prefix": ".csv"
 								},
 								"formatSettings": {
 									"type": "DelimitedTextReadSettings"
@@ -2654,7 +2655,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Stopped",
+				"runtimeState": "Started",
 				"pipelines": [
 					{
 						"pipelineReference": {
