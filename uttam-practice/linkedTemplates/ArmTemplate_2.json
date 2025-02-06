@@ -1054,7 +1054,6 @@
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
 					"blobPathBeginsWith": "/source/blobs/Input/Emp_test.csv",
-					"blobPathEndsWith": ".csv",
 					"ignoreEmptyBlobs": true,
 					"scope": "[parameters('trigger_Pl_copy_storage_event_properties_typeProperties_scope')]",
 					"events": [
