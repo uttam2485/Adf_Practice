@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"fileName": "Emp_test",
 				"folderPath": "input",
 				"container": "source"
 			},
