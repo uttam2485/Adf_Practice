@@ -327,6 +327,42 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/E_new_output')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1_uttam",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "sink"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Deptid",
+						"type": "String"
+					},
+					{
+						"name": " Deptname",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1_uttam')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Emp_Empty_data')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -589,49 +625,6 @@
 						"container": "source"
 					}
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1_uttam')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/dataflow_Emp_nullcontry_dataset')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage1_uttam",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Excel",
-				"typeProperties": {
-					"sheetName": "Emp_with_Null_Country",
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "Emp_with_Null_Country.xlsx",
-						"container": "source"
-					},
-					"firstRowAsHeader": true
-				},
-				"schema": [
-					{
-						"name": "Empid",
-						"type": "String"
-					},
-					{
-						"name": "name",
-						"type": "String"
-					},
-					{
-						"name": "country",
-						"type": "String"
-					},
-					{
-						"name": "deptid",
-						"type": "String"
-					}
-				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1_uttam')]"

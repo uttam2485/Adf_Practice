@@ -198,8 +198,7 @@
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
 									"recursive": true,
-									"enablePartitionDiscovery": false,
-									"prefix": ".csv"
+									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
 									"type": "DelimitedTextReadSettings"
@@ -235,7 +234,7 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "E_Output_dataset",
+								"referenceName": "E_new_output",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -249,7 +248,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/input_emp')]",
-				"[concat(variables('factoryId'), '/datasets/E_Output_dataset')]"
+				"[concat(variables('factoryId'), '/datasets/E_new_output')]"
 			]
 		},
 		{
@@ -1829,6 +1828,42 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/E_new_output')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1_uttam",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "sink"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Deptid",
+						"type": "String"
+					},
+					{
+						"name": " Deptname",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1_uttam')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Emp_Empty_data')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -2362,8 +2397,8 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "Emp_test",
-						"folderPath": "input",
+						"fileName": "Emp_test.csv",
+						"folderPath": "Input",
 						"container": "source"
 					},
 					"columnDelimiter": ",",

@@ -69,6 +69,47 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/dataflow_Emp_nullcontry_dataset')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1_uttam",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Excel",
+				"typeProperties": {
+					"sheetName": "Emp_with_Null_Country",
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "Emp_with_Null_Country.xlsx",
+						"container": "source"
+					},
+					"firstRowAsHeader": true
+				},
+				"schema": [
+					{
+						"name": "Empid",
+						"type": "String"
+					},
+					{
+						"name": "name",
+						"type": "String"
+					},
+					{
+						"name": "country",
+						"type": "String"
+					},
+					{
+						"name": "deptid",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/dataflow_emp_dataset')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -168,8 +209,8 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "Emp_test",
-						"folderPath": "input",
+						"fileName": "Emp_test.csv",
+						"folderPath": "Input",
 						"container": "source"
 					},
 					"columnDelimiter": ",",
@@ -397,8 +438,7 @@
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
 									"recursive": true,
-									"enablePartitionDiscovery": false,
-									"prefix": ".csv"
+									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
 									"type": "DelimitedTextReadSettings"
@@ -434,7 +474,7 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "E_Output_dataset",
+								"referenceName": "E_new_output",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -1354,37 +1394,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/LS_SQLServer')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DC_cdc_citizen_input_dataset')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabase1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "id",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "Name",
-						"type": "varchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "citizens"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]"
 			]
 		}
 	]
