@@ -67,6 +67,10 @@
 			"type": "string",
 			"defaultValue": "Uttam"
 		},
+		"trigger_Pl_copy_storage_event_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/f14efb67-f685-4db7-a312-9f1f7f4c6f03/resourceGroups/uttam_Datafactory/providers/Microsoft.Storage/storageAccounts/uttamstorage182427"
+		},
 		"trigger_pL_If_condition_properties_PL_If_condition_parameters_filename": {
 			"type": "bool",
 			"defaultValue": true
@@ -180,6 +184,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"trigger_Pl_copy_storage_event_properties_typeProperties_scope": {
+						"value": "[parameters('trigger_Pl_copy_storage_event_properties_typeProperties_scope')]"
 					},
 					"trigger_pL_If_condition_properties_PL_If_condition_parameters_filename": {
 						"value": "[parameters('trigger_pL_If_condition_properties_PL_If_condition_parameters_filename')]"

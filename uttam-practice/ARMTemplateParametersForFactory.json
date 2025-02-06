@@ -50,6 +50,9 @@
 		"SqlServer_linkedServices_properties_typeProperties_userName": {
 			"value": "Uttam"
 		},
+		"trigger_Pl_copy_storage_event_properties_typeProperties_scope": {
+			"value": "/subscriptions/f14efb67-f685-4db7-a312-9f1f7f4c6f03/resourceGroups/uttam_Datafactory/providers/Microsoft.Storage/storageAccounts/uttamstorage182427"
+		},
 		"trigger_pL_If_condition_properties_PL_If_condition_parameters_filename": {
 			"value": true
 		}
