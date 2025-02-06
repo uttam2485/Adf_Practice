@@ -1,0 +1,25 @@
+{
+	"name": "trigger_Pl_copy_storage_event",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "PL_Copy",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/source/blobs/Emp_test",
+			"blobPathEndsWith": ".csv",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/f14efb67-f685-4db7-a312-9f1f7f4c6f03/resourceGroups/uttam_Datafactory/providers/Microsoft.Storage/storageAccounts/uttamstorage182427",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
