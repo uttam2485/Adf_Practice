@@ -13,7 +13,7 @@
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/source/blobs/Emp_test",
+			"blobPathBeginsWith": "/source/blobs/Input/Emp_test.csv",
 			"blobPathEndsWith": ".csv",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/f14efb67-f685-4db7-a312-9f1f7f4c6f03/resourceGroups/uttam_Datafactory/providers/Microsoft.Storage/storageAccounts/uttamstorage182427",
