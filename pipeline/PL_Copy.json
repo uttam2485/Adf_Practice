@@ -19,7 +19,6 @@
 						"type": "DelimitedTextSource",
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
-							"fileListPath": ".csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
