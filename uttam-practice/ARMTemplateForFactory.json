@@ -198,7 +198,8 @@
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
 									"recursive": true,
-									"enablePartitionDiscovery": false
+									"enablePartitionDiscovery": false,
+									"prefix": ".csv"
 								},
 								"formatSettings": {
 									"type": "DelimitedTextReadSettings"
@@ -2397,7 +2398,6 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "Emp_test.csv",
 						"folderPath": "Input",
 						"container": "source"
 					},
@@ -2691,7 +2691,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [
 					{
 						"pipelineReference": {
@@ -2703,7 +2703,7 @@
 				],
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
-					"blobPathBeginsWith": "/source/blobs/Emp_test",
+					"blobPathBeginsWith": "/source/blobs/Input/Emp_test.csv",
 					"blobPathEndsWith": ".csv",
 					"ignoreEmptyBlobs": true,
 					"scope": "[parameters('trigger_Pl_copy_storage_event_properties_typeProperties_scope')]",

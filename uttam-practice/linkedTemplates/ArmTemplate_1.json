@@ -209,7 +209,6 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "Emp_test.csv",
 						"folderPath": "Input",
 						"container": "source"
 					},
@@ -438,7 +437,8 @@
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
 									"recursive": true,
-									"enablePartitionDiscovery": false
+									"enablePartitionDiscovery": false,
+									"prefix": ".csv"
 								},
 								"formatSettings": {
 									"type": "DelimitedTextReadSettings"
