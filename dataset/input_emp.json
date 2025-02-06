@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "Emp_test",
-				"folderPath": "input",
+				"fileName": "Emp_test.csv",
+				"folderPath": "Input",
 				"container": "source"
 			},
 			"columnDelimiter": ",",
