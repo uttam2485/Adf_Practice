@@ -941,8 +941,8 @@
 					"recurrence": {
 						"frequency": "Minute",
 						"interval": 15,
-						"startTime": "2025-02-06T03:56:00",
-						"endTime": "2025-02-07T03:59:00",
+						"startTime": "2025-02-05T09:31:00",
+						"endTime": "2025-02-06T09:36:00",
 						"timeZone": "India Standard Time"
 					}
 				}
