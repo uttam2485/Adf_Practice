@@ -55,7 +55,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "E_Output_dataset",
+						"referenceName": "E_new_output",
 						"type": "DatasetReference"
 					}
 				]
