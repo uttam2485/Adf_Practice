@@ -1,0 +1,24 @@
+{
+	"name": "DestinationDataset_y7l",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_uttamadlsgen2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "taxidata",
+				"fileSystem": "synapsedemo"
+			},
+			"compressionCodec": "snappy",
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\"",
+			"firstRowAsHeader": true
+		},
+		"schema": []
+	}
+}
