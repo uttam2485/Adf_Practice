@@ -11,7 +11,13 @@
 		"AzureSqlDatabase2_password": {
 			"value": ""
 		},
+		"AzureSynapseAnalytics1_password": {
+			"value": ""
+		},
 		"LS_SQLServer_password": {
+			"value": ""
+		},
+		"LS_uttamadlsgen2_accountKey": {
 			"value": ""
 		},
 		"SqlServer_linkedServices_password": {
@@ -32,6 +38,15 @@
 		"AzureSqlDatabase2_properties_typeProperties_userName": {
 			"value": "uttam"
 		},
+		"AzureSynapseAnalytics1_properties_typeProperties_server": {
+			"value": "utam-synapse.sql.azuresynapse.net"
+		},
+		"AzureSynapseAnalytics1_properties_typeProperties_database": {
+			"value": "SqlPool"
+		},
+		"AzureSynapseAnalytics1_properties_typeProperties_userName": {
+			"value": "sqladminuser"
+		},
 		"LS_SQLServer_properties_typeProperties_server": {
 			"value": "DESKTOP-HS5G5B7"
 		},
@@ -40,6 +55,9 @@
 		},
 		"LS_SQLServer_properties_typeProperties_userName": {
 			"value": "uttam"
+		},
+		"LS_uttamadlsgen2_properties_typeProperties_url": {
+			"value": "https://uttamadlsgen2.dfs.core.windows.net/"
 		},
 		"SqlServer_linkedServices_properties_typeProperties_server": {
 			"value": "DESKTOP-HS5G5B7"
