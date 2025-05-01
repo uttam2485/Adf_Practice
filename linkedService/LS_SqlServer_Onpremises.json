@@ -1,0 +1,21 @@
+{
+	"name": "LS_SqlServer_Onpremises",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "DESKTOP-6HVCCQ5",
+			"database": "ADF_Practice",
+			"encrypt": "mandatory",
+			"trustServerCertificate": true,
+			"authenticationType": "SQL",
+			"userName": "Aditi",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI5MWFmYTYwMy0yNGY4LTRiMmYtYTAwNy1mMTQ5MjU0MzM4YjMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "Onpremises-IR-Local-file-load",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
