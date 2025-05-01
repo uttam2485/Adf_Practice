@@ -19,6 +19,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'AzureSynapseAnalytics1'"
 		},
+		"LS_File_load_fom_desktop_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_File_load_fom_desktop'"
+		},
 		"LS_SQLServer_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_SQLServer'"
@@ -30,6 +34,10 @@
 		"SqlServer_linkedServices_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SqlServer_linkedServices'"
+		},
+		"LS_SqlServer_Onpremises_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SqlServer_Onpremises'"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"type": "string",
@@ -62,6 +70,14 @@
 		"AzureSynapseAnalytics1_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "sqladminuser"
+		},
+		"LS_File_load_fom_desktop_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "D:\\Azure input files\\Input"
+		},
+		"LS_File_load_fom_desktop_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "desktop-6hvccq5\\admin"
 		},
 		"LS_SQLServer_properties_typeProperties_server": {
 			"type": "string",
@@ -98,6 +114,18 @@
 		"trigger_pL_If_condition_properties_PL_If_condition_parameters_filename": {
 			"type": "bool",
 			"defaultValue": true
+		},
+		"LS_SqlServer_Onpremises_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-6HVCCQ5"
+		},
+		"LS_SqlServer_Onpremises_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "ADF_Practice"
+		},
+		"LS_SqlServer_Onpremises_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Aditi"
 		},
 		"containerUri": {
 			"type": "string",
@@ -168,11 +196,17 @@
 					"AzureSqlDatabase2_password": {
 						"value": "[parameters('AzureSqlDatabase2_password')]"
 					},
+					"LS_File_load_fom_desktop_password": {
+						"value": "[parameters('LS_File_load_fom_desktop_password')]"
+					},
 					"LS_SQLServer_password": {
 						"value": "[parameters('LS_SQLServer_password')]"
 					},
 					"SqlServer_linkedServices_password": {
 						"value": "[parameters('SqlServer_linkedServices_password')]"
+					},
+					"LS_SqlServer_Onpremises_password": {
+						"value": "[parameters('LS_SqlServer_Onpremises_password')]"
 					},
 					"AzureSqlDatabase1_properties_typeProperties_server": {
 						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]"
@@ -188,6 +222,12 @@
 					},
 					"AzureSqlDatabase2_properties_typeProperties_userName": {
 						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_userName')]"
+					},
+					"LS_File_load_fom_desktop_properties_typeProperties_host": {
+						"value": "[parameters('LS_File_load_fom_desktop_properties_typeProperties_host')]"
+					},
+					"LS_File_load_fom_desktop_properties_typeProperties_userId": {
+						"value": "[parameters('LS_File_load_fom_desktop_properties_typeProperties_userId')]"
 					},
 					"LS_SQLServer_properties_typeProperties_server": {
 						"value": "[parameters('LS_SQLServer_properties_typeProperties_server')]"
@@ -206,6 +246,15 @@
 					},
 					"SqlServer_linkedServices_properties_typeProperties_userName": {
 						"value": "[parameters('SqlServer_linkedServices_properties_typeProperties_userName')]"
+					},
+					"LS_SqlServer_Onpremises_properties_typeProperties_server": {
+						"value": "[parameters('LS_SqlServer_Onpremises_properties_typeProperties_server')]"
+					},
+					"LS_SqlServer_Onpremises_properties_typeProperties_database": {
+						"value": "[parameters('LS_SqlServer_Onpremises_properties_typeProperties_database')]"
+					},
+					"LS_SqlServer_Onpremises_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SqlServer_Onpremises_properties_typeProperties_userName')]"
 					}
 				}
 			},
