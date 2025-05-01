@@ -1,0 +1,26 @@
+{
+	"name": "Input_SqlServer_Dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SqlServer_Onpremises",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "name",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "emp_new"
+		}
+	}
+}
