@@ -1,0 +1,6 @@
+{
+	"name": "Onpremises-IR-Local-file-load",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
