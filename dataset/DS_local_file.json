@@ -1,0 +1,31 @@
+{
+	"name": "DS_local_file",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_File_load_fom_desktop",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": "dept.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Deptid",
+				"type": "String"
+			},
+			{
+				"name": " Deptname",
+				"type": "String"
+			}
+		]
+	}
+}
