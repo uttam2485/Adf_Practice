@@ -5,19 +5,11 @@
 		"typeProperties": {
 			"sources": [
 				{
-					"dataset": {
-						"referenceName": "emp_new_inputdataset",
-						"type": "DatasetReference"
-					},
 					"name": "source1"
 				}
 			],
 			"sinks": [
 				{
-					"dataset": {
-						"referenceName": "E_Output_dataset",
-						"type": "DatasetReference"
-					},
 					"name": "sink1"
 				}
 			],
@@ -35,15 +27,10 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false,",
 				"     partitionBy('hash', 1)) ~> source1",
 				"source1 filter(equals(Empid,'2')) ~> filter1",
 				"filter1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     input(",
-				"          Deptid as string,",
-				"          { Deptname} as string",
-				"     ),",
 				"     partitionFileNames:['Payroll.csv'],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
